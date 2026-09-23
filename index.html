@@ -58,32 +58,37 @@
     </div>
   </section>
 
-  <!-- ============ STATEMENT FOLD — DESIGN ============ -->
-  <section class="statement" id="design">
-    <div class="statement__inner">
-      <p class="label">The approach</p>
-      <p class="statement__text">Every plan is a promise. We build the site that proves it gets <span class="accent-amber">kept</span>.</p>
-      <span class="statement__index" aria-hidden="true">01</span>
-    </div>
-    <div class="statement__figure" data-drift>
-      <video class="statement__figure-media" autoplay muted loop playsinline preload="metadata"
-             poster="assets/img/drawing-poster.jpg" aria-label="A hand-drawn architectural elevation resolving on paper, looped.">
+  <!-- ============ SCRUB — DESIGN (pins, draws as you scroll) ============ -->
+  <section class="scrub scrub--design" id="design">
+    <div class="scrub__stage" data-scrub-stage>
+      <video class="scrub__video" data-scrub-video muted playsinline preload="auto"
+             poster="assets/img/drawing-poster.jpg" aria-label="A hand-drawn architectural elevation, drawing itself on as you scroll.">
         <source src="assets/video/drawing.mp4" type="video/mp4">
       </video>
+      <div class="scrub__scrim scrub__scrim--design"></div>
+      <p class="scrub__hint" data-scrub-hint>Scroll to draw</p>
+      <div class="scrub__content">
+        <p class="label">The approach</p>
+        <p class="scrub__text">Every plan is a promise. We build the site that proves it gets <span class="accent-amber">kept</span>.</p>
+        <span class="scrub__index" aria-hidden="true">01</span>
+      </div>
     </div>
   </section>
 
-  <!-- ============ BUILD (full-bleed video) ============ -->
-  <section class="build" id="build">
-    <video class="build__video" autoplay muted loop playsinline preload="metadata"
-           poster="assets/img/build-poster.jpg" aria-hidden="true">
-      <source src="assets/video/build.mp4" type="video/mp4">
-    </video>
-    <div class="build__scrim"></div>
-    <div class="build__content">
-      <p class="label">The build</p>
-      <p class="build__text">This is a demo, not a client site. Every scene here is built the same way yours would be.</p>
-      <span class="build__index" aria-hidden="true">02</span>
+  <!-- ============ SCRUB — BUILD (pins, builds as you scroll) ============ -->
+  <section class="scrub scrub--build" id="build">
+    <div class="scrub__stage" data-scrub-stage>
+      <video class="scrub__video" data-scrub-video muted playsinline preload="auto"
+             poster="assets/img/build-poster.jpg" aria-label="A modern house rising on its foundation as you scroll.">
+        <source src="assets/video/build.mp4" type="video/mp4">
+      </video>
+      <div class="scrub__scrim"></div>
+      <p class="scrub__hint" data-scrub-hint>Scroll to build</p>
+      <div class="scrub__content">
+        <p class="label">The build</p>
+        <p class="scrub__text">This is a demo, not a client site. Every scene here is built the same way yours would be.</p>
+        <span class="scrub__index" aria-hidden="true">02</span>
+      </div>
     </div>
   </section>
 
@@ -98,9 +103,12 @@
         <a href="#contact" class="btn btn--outline btn--amber">Start a project</a>
       </div>
     </div>
+  </section>
 
-    <div class="deck-wrap">
-      <div class="deck" data-deck tabindex="0" role="group" aria-label="Portfolio direction cards, five total. Use left and right arrow keys or drag to browse.">
+  <!-- ============ DECK — pins, cards swipe away as you scroll ============ -->
+  <section class="deck-scrub" data-deck-section>
+    <div class="deck-scrub__stage" data-deck-stage>
+      <div class="deck" data-deck tabindex="0" role="group" aria-label="Portfolio of five directions. Scroll to browse, or use left and right arrow keys.">
         <article class="deck__card" data-card>
           <img src="assets/img/gallery-coastal.jpg" alt="A white contemporary home on a coastal bluff near Knysna with a flat roof and an ocean-facing infinity pool." loading="lazy">
           <p class="deck__card-label">Coastal Bluff</p>
@@ -122,7 +130,7 @@
           <p class="deck__card-label">Hillside Pool</p>
         </article>
       </div>
-      <p class="deck__hint">Drag, or use ← → to browse</p>
+      <p class="deck__hint">Scroll to browse, or use ← →</p>
       <div class="deck__dots" data-deck-dots aria-hidden="true"></div>
     </div>
   </section>
@@ -138,17 +146,17 @@
       </li>
       <li class="roster__row">
         <span class="roster__tag">Design</span>
-        <span class="roster__name">Blueprint reveal, drifting on scroll</span>
+        <span class="roster__name">Scroll-scrubbed blueprint, pins and draws</span>
         <span class="roster__count">01</span>
       </li>
       <li class="roster__row">
         <span class="roster__tag">Build</span>
-        <span class="roster__name">Full-bleed construction sequence</span>
+        <span class="roster__name">Scroll-scrubbed construction sequence</span>
         <span class="roster__count">01</span>
       </li>
       <li class="roster__row">
         <span class="roster__tag">Gallery</span>
-        <span class="roster__name">Throwable portfolio deck</span>
+        <span class="roster__name">Pinned deck, swipes on scroll</span>
         <span class="roster__count">05</span>
       </li>
       <li class="roster__row">
@@ -165,6 +173,7 @@
     <table class="process__table">
       <thead>
         <tr>
+          <th scope="col" class="sr-only">Photo</th>
           <th scope="col">Stage</th>
           <th scope="col">What happens</th>
           <th scope="col">Output</th>
@@ -172,21 +181,25 @@
       </thead>
       <tbody>
         <tr>
+          <td class="process__thumb"><img src="assets/img/process-discovery.jpg" alt="A blank sheet of paper on a timber table." loading="lazy"></td>
           <td data-label="Stage" class="process__num">01 · Discovery</td>
           <td data-label="What happens">A call about the practice, the sites, the kind of client you want more of.</td>
           <td data-label="Output">A one-page brief</td>
         </tr>
         <tr>
+          <td class="process__thumb"><img src="assets/img/drawing-final.jpg" alt="A completed architectural elevation line drawing." loading="lazy"></td>
           <td data-label="Stage" class="process__num">02 · Design</td>
           <td data-label="What happens">Palette and story pulled from your own work, not a template.</td>
           <td data-label="Output">Design package + generation prompts</td>
         </tr>
         <tr>
+          <td class="process__thumb"><img src="assets/img/process-build.jpg" alt="A poured concrete foundation slab on a Knysna hillside construction site." loading="lazy"></td>
           <td data-label="Stage" class="process__num">03 · Build</td>
           <td data-label="What happens">Sections built and wired together, tested on a real phone.</td>
           <td data-label="Output">Working site on a private link</td>
         </tr>
         <tr>
+          <td class="process__thumb"><img src="assets/img/hero-poster.jpg" alt="A finished contemporary home at golden hour." loading="lazy"></td>
           <td data-label="Stage" class="process__num">04 · Launch</td>
           <td data-label="What happens">Domain connected, live, handed over.</td>
           <td data-label="Output">Deployed site</td>
