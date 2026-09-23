@@ -58,19 +58,20 @@
     </div>
   </section>
 
-  <!-- ============ SCRUB — DESIGN (pins, draws as you scroll) ============ -->
-  <section class="scrub scrub--design" id="design">
-    <div class="scrub__stage" data-scrub-stage>
-      <video class="scrub__video" data-scrub-video muted playsinline preload="auto"
-             poster="assets/img/drawing-poster.jpg" aria-label="A hand-drawn architectural elevation, drawing itself on as you scroll.">
-        <source src="assets/video/drawing.mp4" type="video/mp4">
-      </video>
-      <div class="scrub__scrim scrub__scrim--design"></div>
-      <p class="scrub__hint" data-scrub-hint>Scroll to draw</p>
-      <div class="scrub__content">
+  <!-- ============ SPLIT — DESIGN (copy left, contained video right, pins & draws as you scroll) ============ -->
+  <section class="split" id="design">
+    <div class="split__stage">
+      <div class="split__copy">
         <p class="label">The approach</p>
-        <p class="scrub__text">Every plan is a promise. We build the site that proves it gets <span class="accent-amber">kept</span>.</p>
-        <span class="scrub__index" aria-hidden="true">01</span>
+        <p class="split__text">Every plan is a promise. We build the site that proves it gets <span class="accent-amber">kept</span>.</p>
+        <span class="split__index" aria-hidden="true">01</span>
+      </div>
+      <div class="split__media">
+        <video data-scrub-video muted playsinline preload="auto"
+               poster="assets/img/drawing-poster.jpg" aria-label="A hand-drawn architectural elevation, drawing itself on as you scroll.">
+          <source src="assets/video/drawing.mp4" type="video/mp4">
+        </video>
+        <p class="split__hint" data-scrub-hint>Scroll to draw</p>
       </div>
     </div>
   </section>
@@ -92,7 +93,7 @@
     </div>
   </section>
 
-  <!-- ============ WORK / RELEASES ============ -->
+  <!-- ============ WORK / RELEASES — copy one side, deck the other ============ -->
   <section class="work" id="work">
     <div class="work__intro">
       <p class="label">The work</p>
@@ -103,12 +104,9 @@
         <a href="#contact" class="btn btn--outline btn--amber">Start a project</a>
       </div>
     </div>
-  </section>
 
-  <!-- ============ DECK — pins, cards swipe away as you scroll ============ -->
-  <section class="deck-scrub" data-deck-section>
-    <div class="deck-scrub__stage" data-deck-stage>
-      <div class="deck" data-deck tabindex="0" role="group" aria-label="Portfolio of five directions. Scroll to browse, or use left and right arrow keys.">
+    <div class="deck-wrap">
+      <div class="deck" data-deck tabindex="0" role="group" aria-label="Portfolio direction cards, five total. Drag, or use left and right arrow keys.">
         <article class="deck__card" data-card>
           <img src="assets/img/gallery-coastal.jpg" alt="A white contemporary home on a coastal bluff near Knysna with a flat roof and an ocean-facing infinity pool." loading="lazy">
           <p class="deck__card-label">Coastal Bluff</p>
@@ -130,7 +128,7 @@
           <p class="deck__card-label">Hillside Pool</p>
         </article>
       </div>
-      <p class="deck__hint">Scroll to browse, or use ← →</p>
+      <p class="deck__hint">Drag, or use ← → to browse</p>
       <div class="deck__dots" data-deck-dots aria-hidden="true"></div>
     </div>
   </section>
@@ -185,7 +183,7 @@
       </li>
       <li class="roster__row">
         <span class="roster__tag">Gallery</span>
-        <span class="roster__name">Pinned deck, swipes on scroll</span>
+        <span class="roster__name">Throwable deck, drag or arrow keys</span>
         <span class="roster__count">05</span>
       </li>
       <li class="roster__row">
