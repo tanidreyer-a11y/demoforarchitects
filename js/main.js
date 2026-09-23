@@ -233,6 +233,52 @@
   }
 
   /* ============================================================
+     SHOWCASE — pinned horizontal track. Track slides left as you
+     scroll (new items arrive from the right); whichever card sits
+     nearest the stage's center lifts and scales up, as if it were
+     stepping out of the screen. No rotation — stays straight.
+     ============================================================ */
+  function initShowcase() {
+    const section = document.querySelector('.showcase');
+    const track = document.querySelector('[data-showcase-track]');
+    if (!section || !track) return;
+    const items = Array.from(track.querySelectorAll('[data-showcase-item]'));
+    if (reduceMotion || !hasEngine) return; // CSS fallback: plain horizontal scroll strip
+
+    function apply(progress) {
+      const stageEl = section.querySelector('[data-showcase-stage]');
+      const trackWidth = track.scrollWidth;
+      const stageWidth = stageEl.getBoundingClientRect().width;
+      const maxShift = Math.max(0, trackWidth - stageWidth * 0.7);
+      const x = -progress * maxShift;
+      track.style.transform = `translateX(${x}px)`;
+
+      const stageRect = stageEl.getBoundingClientRect();
+      const centerX = stageRect.left + stageRect.width / 2;
+      items.forEach((item) => {
+        const r = item.getBoundingClientRect();
+        const itemCenter = r.left + r.width / 2;
+        const delta = Math.abs(itemCenter - centerX);
+        const proximity = Math.max(0, 1 - delta / (r.width * 1.15));
+        const lift = -proximity * 34;
+        const scale = 1 + proximity * 0.14;
+        item.style.transform = `translateY(${lift}px) scale(${scale})`;
+        item.style.boxShadow = `0 ${20 + proximity * 40}px ${40 + proximity * 40}px -20px rgba(0,0,0,${0.15 + proximity * 0.45})`;
+        item.style.zIndex = String(Math.round(proximity * 100));
+      });
+    }
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+      onRefresh: () => apply(0),
+      onUpdate: (self) => apply(self.progress),
+    });
+  }
+
+  /* ============================================================
      REDUCED MOTION LIVE TOGGLE
      ============================================================ */
   window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => {
@@ -243,5 +289,6 @@
     initHero();
     initScrubSections();
     initDeckScrub();
+    initShowcase();
   });
 })();
