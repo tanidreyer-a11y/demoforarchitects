@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ADC Innovations: cinematic sites for architecture &amp; property studios</title>
+<meta name="description" content="A demo: what a scroll-driven, cinematic website looks like for an architecture or property studio. Built by ADC Innovations.">
+<meta property="og:title" content="ADC Innovations: cinematic sites for architecture studios">
+<meta property="og:description" content="A demo built for architecture and property studios along the Garden Route.">
+<!-- DEPLOY STEP: replace with live URL before/at deploy -->
+<meta property="og:url" content="https://demoforarchitects.vercel.app">
+<meta property="og:image" content="https://demoforarchitects.vercel.app/assets/img/hero-poster.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#work">Skip to work</a>
+
+<header class="nav">
+  <a href="#hero" class="nav__logo">ADC<span class="dot">.</span></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn--pill">Start a project</a>
+</header>
+
+<main>
+
+  <!-- ============ PORTAL HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__stage" data-hero-stage>
+      <video class="hero__video" data-hero-video autoplay muted loop playsinline preload="auto"
+             poster="assets/img/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero__duotone" data-hero-duotone></div>
+      <div class="hero__veil"></div>
+
+      <div class="hero__panel hero__panel--left" data-hero-panel-left></div>
+      <div class="hero__panel hero__panel--right" data-hero-panel-right></div>
+
+      <div class="hero__dot hero__dot--a" data-hero-dot-a></div>
+      <div class="hero__dot hero__dot--b" data-hero-dot-b></div>
+
+      <p class="hero__meta hero__meta--top">Knysna · Garden Route</p>
+      <p class="hero__meta hero__meta--bottom">Demo site · 01</p>
+
+      <h1 class="hero__wordmark" data-hero-wordmark aria-label="ADC Innovations">
+        <span class="hero__wordmark-half hero__wordmark-half--a" data-word-a>ADC</span><span class="hero__wordmark-half hero__wordmark-half--b" data-word-b>INNOVATIONS</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- ============ STATEMENT FOLD — DESIGN ============ -->
+  <section class="statement" id="design">
+    <div class="statement__inner">
+      <p class="label">The approach</p>
+      <p class="statement__text">Every plan is a promise. We build the site that proves it gets <span class="accent-amber">kept</span>.</p>
+      <span class="statement__index" aria-hidden="true">01</span>
+    </div>
+    <div class="statement__figure" data-drift>
+      <video class="statement__figure-media" autoplay muted loop playsinline preload="metadata"
+             poster="assets/img/drawing-poster.jpg" aria-label="A hand-drawn architectural elevation resolving on paper, looped.">
+        <source src="assets/video/drawing.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- ============ BUILD (full-bleed video) ============ -->
+  <section class="build" id="build">
+    <video class="build__video" autoplay muted loop playsinline preload="metadata"
+           poster="assets/img/build-poster.jpg" aria-hidden="true">
+      <source src="assets/video/build.mp4" type="video/mp4">
+    </video>
+    <div class="build__scrim"></div>
+    <div class="build__content">
+      <p class="label">The build</p>
+      <p class="build__text">This is a demo, not a client site. Every scene here is built the same way yours would be.</p>
+      <span class="build__index" aria-hidden="true">02</span>
+    </div>
+  </section>
+
+  <!-- ============ WORK / RELEASES ============ -->
+  <section class="work" id="work">
+    <div class="work__intro">
+      <p class="label">The work</p>
+      <h2 class="work__headline">A few ways this could look for <span class="accent-teal">you</span>.</h2>
+      <p class="work__lede">Five directions pulled from the Garden Route landscape: coastal, forested, lagoon, mountain, hillside. Swap the setting and the structure holds.</p>
+      <div class="work__actions">
+        <a href="#process" class="btn btn--outline">See the process</a>
+        <a href="#contact" class="btn btn--outline btn--amber">Start a project</a>
+      </div>
+    </div>
+
+    <div class="deck-wrap">
+      <div class="deck" data-deck tabindex="0" role="group" aria-label="Portfolio direction cards, five total. Use left and right arrow keys or drag to browse.">
+        <article class="deck__card" data-card>
+          <img src="assets/img/gallery-coastal.jpg" alt="A white contemporary home on a coastal bluff near Knysna with a flat roof and an ocean-facing infinity pool." loading="lazy">
+          <p class="deck__card-label">Coastal Bluff</p>
+        </article>
+        <article class="deck__card" data-card>
+          <img src="assets/img/gallery-forest.jpg" alt="A timber-clad contemporary home on a misty forested hillside above Knysna, with a large cantilevered balcony." loading="lazy">
+          <p class="deck__card-label">Forest Hillside</p>
+        </article>
+        <article class="deck__card" data-card>
+          <img src="assets/img/gallery-lagoon.jpg" alt="A steel-framed glass house on a still Knysna lagoon at sunset, with a floating timber deck." loading="lazy">
+          <p class="deck__card-label">Lagoon Edge</p>
+        </article>
+        <article class="deck__card" data-card>
+          <img src="assets/img/gallery-mountain.jpg" alt="A board-formed concrete home on a Knysna mountainside overlooking the ocean, under a clear sky." loading="lazy">
+          <p class="deck__card-label">Mountain Retreat</p>
+        </article>
+        <article class="deck__card" data-card>
+          <img src="assets/img/gallery-hillside.jpg" alt="A white and timber home on a Knysna hillside at dusk with an infinity pool and lagoon view." loading="lazy">
+          <p class="deck__card-label">Hillside Pool</p>
+        </article>
+      </div>
+      <p class="deck__hint">Drag, or use ← → to browse</p>
+      <div class="deck__dots" data-deck-dots aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPABILITIES / ROSTER ============ -->
+  <section class="capabilities" id="capabilities">
+    <p class="label">What's included, on this demo</p>
+    <ul class="roster" role="list">
+      <li class="roster__row">
+        <span class="roster__tag">Hero</span>
+        <span class="roster__name">Scroll-driven portal reveal</span>
+        <span class="roster__count">01</span>
+      </li>
+      <li class="roster__row">
+        <span class="roster__tag">Design</span>
+        <span class="roster__name">Blueprint reveal, drifting on scroll</span>
+        <span class="roster__count">01</span>
+      </li>
+      <li class="roster__row">
+        <span class="roster__tag">Build</span>
+        <span class="roster__name">Full-bleed construction sequence</span>
+        <span class="roster__count">01</span>
+      </li>
+      <li class="roster__row">
+        <span class="roster__tag">Gallery</span>
+        <span class="roster__name">Throwable portfolio deck</span>
+        <span class="roster__count">05</span>
+      </li>
+      <li class="roster__row">
+        <span class="roster__tag">Contact</span>
+        <span class="roster__name">Direct enquiry, no form maze</span>
+        <span class="roster__count">01</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ PROCESS / DATES TABLE ============ -->
+  <section class="process" id="process">
+    <p class="label">The process</p>
+    <table class="process__table">
+      <thead>
+        <tr>
+          <th scope="col">Stage</th>
+          <th scope="col">What happens</th>
+          <th scope="col">Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Stage" class="process__num">01 · Discovery</td>
+          <td data-label="What happens">A call about the practice, the sites, the kind of client you want more of.</td>
+          <td data-label="Output">A one-page brief</td>
+        </tr>
+        <tr>
+          <td data-label="Stage" class="process__num">02 · Design</td>
+          <td data-label="What happens">Palette and story pulled from your own work, not a template.</td>
+          <td data-label="Output">Design package + generation prompts</td>
+        </tr>
+        <tr>
+          <td data-label="Stage" class="process__num">03 · Build</td>
+          <td data-label="What happens">Sections built and wired together, tested on a real phone.</td>
+          <td data-label="Output">Working site on a private link</td>
+        </tr>
+        <tr>
+          <td data-label="Stage" class="process__num">04 · Launch</td>
+          <td data-label="What happens">Domain connected, live, handed over.</td>
+          <td data-label="Output">Deployed site</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section class="close" id="contact">
+    <div class="close__inner">
+      <h2 class="close__headline">Send this to the next call.</h2>
+      <p class="close__fine">Built as a demo. No client data, no invented numbers: what you're scrolling through is what gets built.</p>
+      <div class="close__actions">
+        <a href="mailto:tanidreyer@gmail.com" class="btn btn--outline btn--amber">Email ADC</a>
+        <a href="#work" class="btn btn--outline">View the work</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__strip">
+    <span>ADC Innovations</span>
+    <span>Knysna, South Africa</span>
+    <span>© 2026</span>
+  </div>
+  <p class="footer__wordmark" aria-hidden="true">ADC INNOVATIONS</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
