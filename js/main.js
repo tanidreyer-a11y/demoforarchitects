@@ -5,6 +5,15 @@
   const hasEngine = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
   if (hasEngine) gsap.registerPlugin(ScrollTrigger);
 
+  // A numeric scrub value (seconds of catch-up lag) instead of `scrub: true`.
+  // Boolean scrub ties every animated value 1:1 to raw scroll input, which
+  // reads as abrupt/fast. A numeric value makes GSAP smooth the progress it
+  // hands to onUpdate — one engine, one easing layer, no separate lerp loop
+  // and no Lenis needed (the two sanctioned combos per the "one easing
+  // layer" rule are boolean-scrub-with-Lenis, or numeric-scrub-without —
+  // this is the second one).
+  const SCRUB_EASE = 0.6;
+
   /* ============================================================
      PORTAL HERO — panels part, wordmark grows & tightens & splits
      ============================================================ */
@@ -58,7 +67,7 @@
       trigger: heroSection,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: true,
+      scrub: SCRUB_EASE,
       onRefresh: () => { stageRect = stage.getBoundingClientRect(); },
       onUpdate: (self) => apply(self.progress),
     });
@@ -66,9 +75,10 @@
 
   /* ============================================================
      SCROLL-SCRUBBED VIDEO SECTIONS — design (drawing) + build
-     Pins via CSS sticky (no double-pin), maps scroll progress to
-     video.currentTime with WebKit priming, seek gating and a lerp
-     smoothing loop, per the scrub engineering standard.
+     Pins via CSS sticky (no double-pin), maps scroll progress
+     (smoothed by GSAP's own numeric scrub, SCRUB_EASE) to
+     video.currentTime with WebKit priming and seek gating, per
+     the scrub engineering standard.
      ============================================================ */
   function initScrubSection(section) {
     const video = section.querySelector('[data-scrub-video]');
@@ -104,11 +114,11 @@
     });
     video.addEventListener('error', () => { seekBusy = false; pendingTime = null; });
 
-    // Direct scroll-to-seek (scrub: true, boolean — no added delay). A second
-    // lerp/smoothing layer on top would be a second easing stage fighting
-    // ScrollTrigger's own progress tracking (see the "one easing layer"
-    // rule), and at 10s clips it isn't needed. Seek gating above still
-    // coalesces to the latest wanted time if a seek is in flight.
+    // GSAP's numeric scrub (SCRUB_EASE) already smooths the progress value
+    // it hands to onUpdate, so this just seeks straight off it — a second
+    // lerp layer here would be a second easing stage fighting the first.
+    // Seek gating above still coalesces to the latest wanted time if a seek
+    // is in flight.
     function setTarget(p) {
       requestSeek(p * video.duration);
     }
@@ -119,7 +129,7 @@
         trigger: section,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: SCRUB_EASE,
         onUpdate: (self) => {
           setTarget(self.progress);
           if (hint) hint.classList.toggle('is-hidden', self.progress > 0.06);
@@ -279,7 +289,7 @@
       trigger: section,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: true,
+      scrub: SCRUB_EASE,
       onRefresh: () => apply(0),
       onUpdate: (self) => apply(self.progress),
     });
